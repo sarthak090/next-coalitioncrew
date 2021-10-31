@@ -39,7 +39,7 @@ export default function Category({ postsData, categoryTitle }) {
                           href={`/category/${cat.slug}`}
                           className="inline-block"
                         > */}
-                        <Link href={`/category/${cat.slug}`}>
+                        <Link href={`/category/${cat.slug}`} passHref={true}>
                           <p>
                             {"  "} {cat.name}
                           </p>
@@ -53,7 +53,10 @@ export default function Category({ postsData, categoryTitle }) {
                       href={`/author/${post.author.name + "-" + 1}`}
                       className="inline-block"
                     > */}
-                    <Link href={`/author/${post.author.name + "-" + 1}`}>
+                    <Link
+                      passHref={true}
+                      href={`/author/${post.author.name + "-" + 1}`}
+                    >
                       <p> By {post.author.name}</p>
                     </Link>
                     {/* </a> */}
@@ -69,7 +72,7 @@ export default function Category({ postsData, categoryTitle }) {
                   href={`/posts/${post.slug}`}
                   className={"mb-10 text-heading"}
                 > */}
-                <Link href={`/posts/${post.slug}`}>
+                <Link passHref={true} href={`/posts/${post.slug}`}>
                   <p className="text-heading"> READ MORE</p>
                 </Link>
                 {/* </a> */}

@@ -33,7 +33,7 @@ export default function authorPost({ postsData, categoryTitle }) {
                           href={`/category/${cat.slug}`}
                           className="inline-block"
                         > */}
-                        <Link href={`/category/${cat.slug}`}>
+                        <Link passHref={true} href={`/category/${cat.slug}`}>
                           <p> {cat.name}</p>
                         </Link>
                         {/* </a> */}
