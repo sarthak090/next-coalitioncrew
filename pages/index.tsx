@@ -76,7 +76,7 @@ export default function Home({ data }: Props) {
             <footer className=" ">
               <nav className=" flex flex-col md:flex-row justify-between items-center   gap-4   mb-3">
                 <div>
-                  <img
+                  <Image
                     alt={"movie.title"}
                     src={`/img/logo.png`}
                     width={100}
