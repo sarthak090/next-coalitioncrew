@@ -19,9 +19,9 @@ export default function PostFooter() {
         <br />
         <br />
 
-        <a className="text-center my-12 text-gray-400" href="/">
+        <div className="text-center my-12 text-gray-400">
           <Link href="/">Home</Link>
-        </a>
+        </div>
       </p>
 
       <div className="grid grid-cols-3">

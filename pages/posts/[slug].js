@@ -7,11 +7,13 @@ import PostFooter from "../../components/Layout/PostFooter";
 import { NextSeo } from "next-seo";
 
 export default function Post({ postsData }) {
-  const { title, comments, category, author, content, id } = postsData;
   const [comment_author, setName] = useState("");
   const [comment_author_email, setEmail] = useState("");
   const [comment_author_url, setWebsite] = useState("");
   const [comment_content, setComment] = useState("");
+  if (postsData == undefined) return <div>Loading...</div>;
+
+  const { title, comments, category, author, content, id } = postsData;
 
   const handleCommentSubmit = (e) => {
     e.preventDefault();
@@ -54,15 +56,9 @@ export default function Post({ postsData }) {
         }}
       />
       <div className="post-header bg-bannerColor flex justify-center py-7">
-        <a href="/">
-          {" "}
-          <Image
-            src="/img/post-banner.png"
-            alt="logo"
-            height={120}
-            width={240}
-          />
-        </a>
+        {/* <a href="/"> */}{" "}
+        <Image src="/img/post-banner.png" alt="logo" height={120} width={240} />
+        {/* </a> */}
       </div>
       <div className=" bg-postbg1 p-16 ">
         <div className="container bg-postbg2 text-gray-400 py-16 px-24 ">
@@ -77,23 +73,26 @@ export default function Post({ postsData }) {
               {category.length &&
                 category.map((cat) => (
                   <span className="mr-0.5" key={cat.cat_ID}>
-                    <a href={`/category/${cat.slug}`} className="inline-block">
-                      <Link href={`/category/${cat.slug}`}>
-                        <p> {cat.name}</p>
-                      </Link>
-                    </a>
+                    {/* <a href={`/category/${cat.slug}`} className="inline-block"> */}
+                    <Link href={`/category/${cat.slug}`} passHref={true}>
+                      <p> {cat.name}</p>
+                    </Link>
+                    {/* </a> */}
                     {" ,"}
                   </span>
                 ))}
               <span>
-                <a
+                {/* <a
                   href={`/author/${author.name + "-" + author.id}`}
                   className="inline-block"
+                > */}
+                <Link
+                  passHref={true}
+                  href={`/author/${author.name + "-" + author.id}`}
                 >
-                  <Link href={`/author/${author.name + "-" + author.id}`}>
-                    <p> By {author.name}</p>
-                  </Link>
-                </a>
+                  <p> By {author.name}</p>
+                </Link>
+                {/* </a> */}
               </span>
             </div>
           </div>
@@ -106,7 +105,7 @@ export default function Post({ postsData }) {
         <div className="comments my-16 bg-postbg2 text-heading p-20">
           <p className="text-4xl font-bold">
             {" "}
-            {comments.length} thoughts on "{title.rendered}"{" "}
+            {comments.length} thoughts on {title.rendered}{" "}
           </p>
           {comments
 
@@ -114,6 +113,7 @@ export default function Post({ postsData }) {
             .reverse()
             .map((comment) => (
               <div
+                key={comment.comment_ID}
                 className={`my-4 ${
                   comment.comment_parent !== "0" ? "pl-6" : ""
                 }`}
@@ -231,7 +231,7 @@ export const getStaticProps = async (ctx) => {
 
   const postsData = await res.json();
 
-  if (postsData.length === 0) {
+  if (postsData.length === 0 || postsData === undefined) {
     return {
       props: {
         postsData,

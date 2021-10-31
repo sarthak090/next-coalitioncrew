@@ -8,15 +8,9 @@ export default function authorPost({ postsData, categoryTitle }) {
     <main className="bg-postbg1">
       <NextSeo title={`${categoryTitle} Archives`} />
       <div className="post-header bg-bannerColor flex justify-center md:py-7 mb-12 md:mb-16">
-        <a href="/">
-          {" "}
-          <Image
-            src="/img/post-banner.png"
-            alt="logo"
-            height={120}
-            width={240}
-          />
-        </a>
+        {/* <a href="/"> */}{" "}
+        <Image src="/img/post-banner.png" alt="logo" height={120} width={240} />
+        {/* </a> */}
       </div>
       <div className="bg-postbg1 px-2">
         <div className="md:px-20 text-gray-400">
@@ -25,7 +19,7 @@ export default function authorPost({ postsData, categoryTitle }) {
           </div>
           <div className="px-4 md:px-20 bg-postbg2">
             {postsData.map((post) => (
-              <div className=" border-b-2 p-2">
+              <div key={post.id} className=" border-b-2 p-2">
                 <div className="text-3xl pt-10 font-bold">
                   {post.title.rendered}{" "}
                 </div>
@@ -35,14 +29,14 @@ export default function authorPost({ postsData, categoryTitle }) {
                   {post.category.length &&
                     post.category.map((cat) => (
                       <span className="mr-0.5" key={cat.cat_ID}>
-                        <a
+                        {/* <a
                           href={`/category/${cat.slug}`}
                           className="inline-block"
-                        >
-                          <Link href={`/category/${cat.slug}`}>
-                            <p> {cat.name}</p>
-                          </Link>
-                        </a>
+                        > */}
+                        <Link href={`/category/${cat.slug}`}>
+                          <p> {cat.name}</p>
+                        </Link>
+                        {/* </a> */}
                         {" ,"}
                       </span>
                     ))}
@@ -54,12 +48,12 @@ export default function authorPost({ postsData, categoryTitle }) {
                     __html: post.content.substring(0, 380),
                   }}
                 ></div>
-                <a
+                {/* <a
                   href={`/posts/${post.slug}`}
                   className={"mb-10 text-heading"}
-                >
-                  <Link href={`/posts/${post.slug}`}>READ MORE</Link>
-                </a>
+                > */}
+                <Link href={`/posts/${post.slug}`}>READ MORE</Link>
+                {/* </a> */}
               </div>
             ))}{" "}
           </div>

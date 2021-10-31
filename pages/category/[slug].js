@@ -6,15 +6,9 @@ export default function Category({ postsData, categoryTitle }) {
     <main className="bg-postbg1">
       <NextSeo title={`${categoryTitle} Archives`} />
       <div className="post-header bg-bannerColor flex justify-center py-7 mb-16">
-        <a href="/">
-          {" "}
-          <Image
-            src="/img/post-banner.png"
-            alt="logo"
-            height={120}
-            width={240}
-          />
-        </a>
+        {/* <a href="/"> */}{" "}
+        <Image src="/img/post-banner.png" alt="logo" height={120} width={240} />
+        {/* </a> */}
       </div>
       <div className="bg-postbg1 px-2">
         <div className="px-20 text-gray-400">
@@ -23,16 +17,16 @@ export default function Category({ postsData, categoryTitle }) {
           </div>
           <div className="px-4 md:px-20 bg-postbg2">
             {postsData.map((post) => (
-              <div className=" border-b-2 p-2">
+              <div key={post.id} className=" border-b-2 p-2">
                 <div className="text-3xl pt-10 font-bold">
-                  <a
+                  {/* <a
                     href={`/posts/${post.slug}`}
                     // className={""}
-                  >
-                    <Link href={`/posts/${post.slug}`}>
-                      {post.title.rendered}
-                    </Link>
-                  </a>
+                  > */}
+                  <Link href={`/posts/${post.slug}`}>
+                    {post.title.rendered}
+                  </Link>
+                  {/* </a> */}
                 </div>
                 <div className="text-sm text-heading my-4">
                   {" "}
@@ -40,27 +34,27 @@ export default function Category({ postsData, categoryTitle }) {
                   {post.category.length &&
                     post.category.map((cat) => (
                       <span className="mr-0.5" key={cat.cat_ID}>
-                        <a
+                        {/* <a
                           href={`/category/${cat.slug}`}
                           className="inline-block"
-                        >
-                          <Link href={`/category/${cat.slug}`}>
-                            <p> {cat.name}</p>
-                          </Link>
-                        </a>
+                        > */}
+                        <Link href={`/category/${cat.slug}`}>
+                          <p> {cat.name}</p>
+                        </Link>
+                        {/* </a> */}
                         {" ,"}
                       </span>
                     ))}
                   <span>
                     {" "}
-                    <a
+                    {/* <a
                       href={`/author/${post.author.name + "-" + 1}`}
                       className="inline-block"
-                    >
-                      <Link href={`/author/${post.author.name + "-" + 1}`}>
-                        <p> By {post.author.name}</p>
-                      </Link>
-                    </a>
+                    > */}
+                    <Link href={`/author/${post.author.name + "-" + 1}`}>
+                      <p> By {post.author.name}</p>
+                    </Link>
+                    {/* </a> */}
                   </span>
                 </div>
                 <div
@@ -69,12 +63,12 @@ export default function Category({ postsData, categoryTitle }) {
                     __html: post.content.substring(0, 380),
                   }}
                 ></div>
-                <a
+                {/* <a
                   href={`/posts/${post.slug}`}
                   className={"mb-10 text-heading"}
-                >
-                  <Link href={`/posts/${post.slug}`}>READ MORE</Link>
-                </a>
+                > */}
+                <Link href={`/posts/${post.slug}`}>READ MORE</Link>
+                {/* </a> */}
               </div>
             ))}{" "}
           </div>

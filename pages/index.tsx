@@ -1,6 +1,7 @@
 import { NextSeo } from "next-seo";
 import Header from "../components/Layout/Header";
 import Image from "next/image";
+import Link from "next/link";
 export default function Home() {
   return (
     <>
@@ -228,7 +229,7 @@ export default function Home() {
                   </div>
                   <div className="my-8">© 2021 COALITION CREW LLC</div>
                   <span className="text-cheetah">
-                    <a href="/">COALITION CREW Terms & Conditions</a>{" "}
+                    <Link href="/">COALITION CREW Terms & Conditions</Link>{" "}
                   </span>
                 </div>
               </nav>
