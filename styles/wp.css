@@ -1,6 +1,11 @@
 .blog-section {
   flex: 3;
 }
+#founder {
+  font-size: 2rem;
+  font-weight: bold;
+  font-style: italic;
+}
 #banner {
   background-position: center;
 }
@@ -12,6 +17,14 @@
   box-shadow: rgba(240, 46, 170, 0.4) 5px 5px, rgba(240, 46, 170, 0.3) 10px 10px,
     rgba(240, 46, 170, 0.2) 15px 15px, rgba(240, 46, 170, 0.1) 20px 20px,
     rgba(240, 46, 170, 0.05) 25px 25px;
+}
+#cta2 {
+  box-shadow: rgba(0, 0, 0, 0.15) 0px 15px 25px,
+    rgba(0, 0, 0, 0.05) 0px 5px 10px;
+  transition: all 0.3s ease-out;
+}
+#cta2:hover {
+  transform: translateY(-5px);
 }
 #cta:hover {
   transform: translateY(-5px);

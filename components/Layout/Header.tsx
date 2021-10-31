@@ -1,8 +1,8 @@
 import Image from "next/image";
 export default function Header() {
   return (
-    <header>
-      <nav className=" flex justify-end md:px-20 px-5 gap-8 pt-4 mb-3">
+    <header className="md:px-20 px-5">
+      <nav className=" flex justify-end  gap-8 pt-4 mb-3">
         <div>
           {/* <Image
             alt={"movie.title"}
@@ -85,6 +85,14 @@ export default function Header() {
           </a>
         </div>
       </nav>
+      <div className="flex justify-end">
+        <button
+          id="cta2"
+          className="border italic border-white mb-3 px-4 text-white"
+        >
+          Connect wallet
+        </button>
+      </div>
     </header>
   );
 }

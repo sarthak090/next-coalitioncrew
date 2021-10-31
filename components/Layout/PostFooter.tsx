@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { location, social, tel } from "../../blog.config";
 export default function PostFooter() {
   return (
     <footer className="text-heading">
@@ -14,7 +15,7 @@ export default function PostFooter() {
           className="text-center text-3xl font-bold my-8"
           href="tel:+1234567890"
         >
-          Or Call +1 234 56 7890
+          Or Call {tel}
         </a>
         <br />
         <br />
@@ -24,18 +25,18 @@ export default function PostFooter() {
         </div>
       </p>
 
-      <div className="grid md:grid-cols-3">
+      <div className="grid grid-cols-3">
         <div className="text-center">
           <p className="text-2xl">Location</p>
           <p className="text-gray-400 my-12">
-            1234 N Spring St,
-            <br /> Los Angeles, CA 90012
+            {location.address}
+            <br /> {location.city}, {location.zip}
           </p>
 
           <p className="text-2xl">Follow Us</p>
           <div className="flex gap-4 justify-center pt-3">
             <div className="">
-              <a href="https://www.youtube.com/c/23Ambition">
+              <a href={social.youtube}>
                 {" "}
                 <svg
                   className="hover:text-heading"
@@ -53,7 +54,7 @@ export default function PostFooter() {
               </a>
             </div>
             <div className="">
-              <a href="https://twitter.com/CCrewNFT">
+              <a href={social.twitter}>
                 <svg
                   width="20"
                   height="20"
@@ -69,7 +70,7 @@ export default function PostFooter() {
               </a>
             </div>
             <div className="">
-              <a href="https://www.instagram.com/peterjvoogd/">
+              <a href={social.instagram}>
                 <svg
                   width="20"
                   height="20"
@@ -90,6 +91,15 @@ export default function PostFooter() {
         <div className="text-center">
           <p className="text-2xl font-bold mb-4">Hours</p>
           <p className="text-gray-400">
+            {/* {Object.keys(time).map((day:string, i) => {
+              return (
+                <span key={i}>
+                  <div className="text-gray-400">
+                    {day}-{time[day]}
+                  </div>
+                </span>
+              );
+            })} */}
             Monday : 11AM – 11PM <br />
             Tuesday : 11AM – 11PM <br />
             Wednesday : 11AM – 11PM <br />
