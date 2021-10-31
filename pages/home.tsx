@@ -37,7 +37,7 @@ export default function Home({ data }: Props) {
       <div className="bg-black">
         <Header />
 
-        <div className="banner md:px-20 mb-12">
+        <div className=" banner md:px-20 mb-12">
           <div
             id="banner"
             className=" bg-banner w-full  h-screen bg-cover flex flex-col justify-between"
