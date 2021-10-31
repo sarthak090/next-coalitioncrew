@@ -24,7 +24,7 @@ export default function PostFooter() {
         </div>
       </p>
 
-      <div className="grid grid-cols-3">
+      <div className="grid md:grid-cols-3">
         <div className="text-center">
           <p className="text-2xl">Location</p>
           <p className="text-gray-400 my-12">

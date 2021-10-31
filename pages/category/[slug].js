@@ -11,14 +11,14 @@ export default function Category({ postsData, categoryTitle }) {
         {/* </a> */}
       </div>
       <div className="bg-postbg1 px-2">
-        <div className="px-20 text-gray-400">
+        <div className="md:px-20 text-gray-400">
           <div className=" py-8 bg-white text-heading font-bold px-4 md:px-20">
             <h1 className="capitalize text-5xl">{categoryTitle}</h1>{" "}
           </div>
           <div className="px-4 md:px-20 bg-postbg2">
             {postsData.map((post) => (
               <div key={post.id} className=" border-b-2 p-2">
-                <div className="text-3xl pt-10 font-bold">
+                <div className="text-2xl md:text-3xl pt-10 font-bold">
                   {/* <a
                     href={`/posts/${post.slug}`}
                     // className={""}
@@ -28,9 +28,10 @@ export default function Category({ postsData, categoryTitle }) {
                   </Link>
                   {/* </a> */}
                 </div>
-                <div className="text-sm text-heading my-4">
+                <div className="text-sm text-heading my-4 inline-flex">
                   {" "}
-                  <span>{post.totalComments} Comments / </span>{" "}
+                  <span>{post.totalComments} Comments / </span>
+                  {"  "}
                   {post.category.length &&
                     post.category.map((cat) => (
                       <span className="mr-0.5" key={cat.cat_ID}>
@@ -39,10 +40,11 @@ export default function Category({ postsData, categoryTitle }) {
                           className="inline-block"
                         > */}
                         <Link href={`/category/${cat.slug}`}>
-                          <p> {cat.name}</p>
+                          <p>
+                            {"  "} {cat.name}
+                          </p>
                         </Link>
                         {/* </a> */}
-                        {" ,"}
                       </span>
                     ))}
                   <span>
@@ -67,7 +69,9 @@ export default function Category({ postsData, categoryTitle }) {
                   href={`/posts/${post.slug}`}
                   className={"mb-10 text-heading"}
                 > */}
-                <Link href={`/posts/${post.slug}`}>READ MORE</Link>
+                <Link href={`/posts/${post.slug}`}>
+                  <p className="text-heading"> READ MORE</p>
+                </Link>
                 {/* </a> */}
               </div>
             ))}{" "}

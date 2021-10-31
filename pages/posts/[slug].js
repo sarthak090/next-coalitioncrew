@@ -5,6 +5,7 @@ import Image from "next/image";
 import Link from "next/link";
 import PostFooter from "../../components/Layout/PostFooter";
 import { NextSeo } from "next-seo";
+import { comment } from "postcss";
 
 export default function Post({ postsData }) {
   const [comment_author, setName] = useState("");
@@ -13,7 +14,7 @@ export default function Post({ postsData }) {
   const [comment_content, setComment] = useState("");
   if (postsData == undefined) return <div>Loading...</div>;
 
-  const { title, comments, category, author, content, id } = postsData;
+  const { title, comments, category, author, content, id, slug } = postsData;
 
   const handleCommentSubmit = (e) => {
     e.preventDefault();
@@ -49,6 +50,7 @@ export default function Post({ postsData }) {
     <>
       <NextSeo
         title={title.rendered}
+        canonical={`${process.env.NEXT_PUBLIC_BLOG_URL}/posts/${slug}`}
         openGraph={{
           type: "article",
           locale: "en_US",
@@ -60,25 +62,24 @@ export default function Post({ postsData }) {
         <Image src="/img/post-banner.png" alt="logo" height={120} width={240} />
         {/* </a> */}
       </div>
-      <div className=" bg-postbg1 p-16 ">
-        <div className="container bg-postbg2 text-gray-400 py-16 px-24 ">
+      <div className=" bg-postbg1 md:p-16 ">
+        <div className="container bg-postbg2 text-gray-400 py-16 md:px-24 px-6 ">
           <div className="text-heading  font-bold">
             <h1
               className="text-3xl mb-3"
               dangerouslySetInnerHTML={{ __html: title.rendered }}
             ></h1>
-            <div className="text-sm">
+            <div className="text-sm inline-flex">
               {" "}
               <span>{comments.length} Comments / </span>{" "}
               {category.length &&
                 category.map((cat) => (
-                  <span className="mr-0.5" key={cat.cat_ID}>
+                  <span className="mr-0.5 " key={cat.cat_ID}>
                     {/* <a href={`/category/${cat.slug}`} className="inline-block"> */}
                     <Link href={`/category/${cat.slug}`} passHref={true}>
-                      <p> {cat.name}</p>
+                      <p> {cat.name} ,</p>
                     </Link>
                     {/* </a> */}
-                    {" ,"}
                   </span>
                 ))}
               <span>
@@ -102,41 +103,43 @@ export default function Post({ postsData }) {
             dangerouslySetInnerHTML={{ __html: content }}
           ></div>
         </div>
-        <div className="comments my-16 bg-postbg2 text-heading p-20">
-          <p className="text-4xl font-bold">
-            {" "}
-            {comments.length} thoughts on {title.rendered}{" "}
-          </p>
-          {comments
+        {comments.length && (
+          <div className="comments my-16 bg-postbg2 text-heading md:p-20 p-4">
+            <p className="text-4xl font-bold">
+              {" "}
+              {comments.length} thoughts on {title.rendered}{" "}
+            </p>
+            {comments
 
-            .filter((cmt) => cmt.comment_approved == "1")
-            .reverse()
-            .map((comment) => (
-              <div
-                key={comment.comment_ID}
-                className={`my-4 ${
-                  comment.comment_parent !== "0" ? "pl-6" : ""
-                }`}
-              >
+              .filter((cmt) => cmt.comment_approved == "1")
+              .reverse()
+              .map((comment) => (
                 <div
-                  className="text-sm uppercase font-semibold mt-3"
-                  dangerouslySetInnerHTML={{ __html: comment.comment_author }}
-                ></div>
-                <div className="text-xs">
-                  {formatDate(comment.comment_date)}
+                  key={comment.comment_ID}
+                  className={`my-4 ${
+                    comment.comment_parent !== "0" ? "pl-6" : ""
+                  }`}
+                >
+                  <div
+                    className="text-sm uppercase font-semibold mt-3"
+                    dangerouslySetInnerHTML={{ __html: comment.comment_author }}
+                  ></div>
+                  <div className="text-xs">
+                    {formatDate(comment.comment_date)}
+                  </div>
+                  <div
+                    className="text-md my-3 text-gray-400"
+                    dangerouslySetInnerHTML={{
+                      __html: comment.comment_content,
+                    }}
+                  ></div>
                 </div>
-                <div
-                  className="text-md my-3 text-gray-400"
-                  dangerouslySetInnerHTML={{
-                    __html: comment.comment_content,
-                  }}
-                ></div>
-              </div>
-            ))}
-          <div></div>
-        </div>
+              ))}
+            <div></div>
+          </div>
+        )}
 
-        <div className="bg-postbg2 p-20 text-gray-400">
+        <div className="bg-postbg2 md:p-20 p-6 text-gray-400">
           <p className="text-2xl text-heading">Leave A Comment</p>
           <p>
             Your email address will not be published. Required fields are marked
