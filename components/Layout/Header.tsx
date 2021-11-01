@@ -88,7 +88,7 @@ export default function Header() {
       <div className="flex justify-end">
         <button
           id="cta2"
-          className="border italic font-bold border-white mb-3 px-4 text-white"
+          className="border uppercase italic font-bold border-white mb-3 px-4 text-white"
         >
           Connect wallet
         </button>
