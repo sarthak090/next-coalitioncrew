@@ -10,11 +10,13 @@
   },
   "dependencies": {
     "axios": "^0.24.0",
+    "framer-motion": "^5.3.1",
     "moment": "^2.29.1",
     "next": "11.0.1",
     "next-seo": "^4.28.1",
     "react": "17.0.2",
-    "react-dom": "17.0.2"
+    "react-dom": "17.0.2",
+    "react-intersection-observer": "^8.32.3"
   },
   "devDependencies": {
     "@types/react": "17.0.13",
