@@ -40,7 +40,7 @@ type Props = {
   };
 };
 export default function Home({ data }: Props) {
-  const { ref, inView } = useInView();
+  const { ref, inView } = useInView({ threshold: 0.2 });
   const animation = useAnimation();
   const firstImg = useAnimation();
   const secondImg = useAnimation();
@@ -164,36 +164,36 @@ export default function Home({ data }: Props) {
         }}
       />
 
-      <div className="bg-black">
+      <div className="t">
         <div
           id="banner"
-          className=" bg-crew w-full  h-screen bg-cover flex flex-col justify-between"
+          className=" relative bg-crew w-full  h-screen bg-cover flex flex-col justify-between"
         >
           <Header />
 
-          <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col  md:absolute right-64 bottom-20  justify-center items-center">
             <button
               id="cta2"
-              className="border uppercase italic font-bold border-iconColor mb-3 px-4 text-iconColor"
+              className="  text-3xl bg-yellow-300 uppercase italic font-bold  mb-3 px-16 py-3  text-iconColor"
             >
               Mint Here
             </button>
           </div>
         </div>
 
-        <div className="bg-black text-white ">
+        <div className=" text-gray-800 ">
           <div className="post-content container mx-auto text-lg  p-10 text-center md:text-left ">
             {/* <div
               dangerouslySetInnerHTML={{ __html: data.content.rendered }}
             ></div> */}
             <div className="first-section">
-              <h1 className="text-yellowHeading text-left our-mission font-bold text-3xl border-b-2 pb-3 border-yellow-200 md:w-1/4">
+              <h1 className="text-gray-900 text-left our-mission font-bold text-3xl border-b-2 pb-3 border-gray-800 md:w-1/4">
                 Our Mission
               </h1>
               <section className="grid md:grid-cols-2 items-center">
                 <div className="flex items-center justify-center">
                   {" "}
-                  <div className="h-72 animate-pulse duration-300 w-72 md:w-96 md:h-96 bg-yellow-200 rounded-full absolute z-0 md:left-40"></div>
+                  <div className="h-72  duration-300 w-72 md:w-96 md:h-96 bg-gray-800 rounded-full absolute z-0 md:left-40"></div>
                   <Image
                     alt={"logo"}
                     src={`/img/cheetah.png`}
@@ -209,7 +209,7 @@ export default function Home({ data }: Props) {
               </section>
 
               <div className="flex justify-center">
-                <div className="w-36 h-2 flex  bg-yellow-200 my-9"></div>
+                <div className="w-36 h-2 flex  bg-gray-700 my-9"></div>
               </div>
 
               <div
@@ -218,23 +218,20 @@ export default function Home({ data }: Props) {
               >
                 <motion.div
                   animate={animation}
-                  className="w-48 h-60 bg-white"
+                  className="w-48 h-60 bg-gray-400 rounded-t-md"
                 ></motion.div>
                 <motion.div
                   animate={firstImg}
-                  className="w-48 h-60 bg-white"
+                  className="w-48 h-60 bg-gray-400 rounded-t-md"
                 ></motion.div>
                 <motion.div
                   animate={animation}
-                  className="w-48 h-60 bg-white"
+                  className="w-48 h-60 bg-gray-400 rounded-t-md"
                 ></motion.div>
                 <motion.div
                   animate={animation}
-                  className="w-48 h-60 bg-white"
+                  className="w-48 h-60 bg-gray-400 rounded-t-md"
                 ></motion.div>
-                {/* <div className="w-48 h-60 bg-white"></div>
-                <div className="w-48 h-60 bg-white"></div>
-                <div className="w-48 h-60 bg-white"></div> */}
               </div>
 
               <section
@@ -370,7 +367,7 @@ export default function Home({ data }: Props) {
               ></section>
             </div>
 
-            <div className="  h-0.5 w-full bg-white my-8"></div>
+            <div className="  h-0.5 w-full bg-gray-700 my-8"></div>
             <Footer />
           </div>
         </div>

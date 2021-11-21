@@ -13,7 +13,7 @@
   width: 2px;
   height: 100%;
   margin: 6px;
-  background: rgb(253 230 138);
+  background: rgb(55, 59, 66);
 }
 
 .featured-img-2::after {
@@ -24,8 +24,7 @@
   width: 2px;
   height: 100%;
   margin: 6px;
-
-  background: rgb(253 230 138);
+  background: rgb(55, 59, 66);
 }
 
 .feature-img img {
@@ -66,7 +65,7 @@
 body {
   /* font-family: "Roboto", sans-serif; */
   font-family: "Montserrat", sans-serif;
-  background: black;
+  background: #f3df96;
 }
 #founder {
   font-size: 2rem;
@@ -75,6 +74,9 @@ body {
 }
 #banner {
   background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 80vh;
 }
 #banner-image {
   position: absolute;
@@ -187,7 +189,7 @@ body {
   margin: 1.2rem 0;
 }
 .post-content p a {
-  color: #fbe489;
+  /* color: #fbe489; */
 }
 
 .post-content li > img {
