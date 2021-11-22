@@ -6,6 +6,7 @@ import { motion, useAnimation } from "framer-motion";
 import { GetStaticProps } from "next";
 import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
+import BusinessPractices from "../components/SVG/BusinessPractices";
 type Props = {
   data: {
     title: { rendered: string };
@@ -56,35 +57,35 @@ export default function Home({ data }: Props) {
         y: 0,
         opacity: 1,
         zIndex: 1,
-        transition: { duration: 1 },
+        transition: { duration: 0.6 },
       });
       firstImg.start({
         x: 0,
         y: 0,
         opacity: 1,
         zIndex: 1,
-        transition: { duration: 1 },
+        transition: { duration: 0.8 },
       });
       secondImg.start({
         x: 0,
         y: 0,
         opacity: 1,
         zIndex: 1,
-        transition: { duration: 1 },
+        transition: { duration: 0.9 },
       });
       thirdImg.start({
         x: 0,
         y: 0,
         opacity: 1,
         zIndex: 1,
-        transition: { duration: 1 },
+        transition: { duration: 1.2 },
       });
       fourthImg.start({
         x: 0,
         y: 0,
         opacity: 1,
         zIndex: 1,
-        transition: { duration: 1 },
+        transition: { duration: 1.4 },
       });
       slideLeft.start({
         x: 0,
@@ -101,33 +102,36 @@ export default function Home({ data }: Props) {
         opacity: 0,
         zIndex: -1,
 
-        transition: { duration: 0.9 },
+        transition: { duration: 1 },
       });
       firstImg.start({
         x: 0,
         y: 252,
         opacity: 0,
         zIndex: -1,
-        transition: { duration: 2 },
+        transition: { duration: 1 },
       });
       secondImg.start({
         x: 0,
-        y: 0,
-        opacity: 1,
+        y: 252,
+
+        opacity: 0,
         zIndex: 1,
         transition: { duration: 1 },
       });
       thirdImg.start({
         x: 0,
-        y: 0,
-        opacity: 1,
+        y: 252,
+
+        opacity: 0,
         zIndex: 1,
         transition: { duration: 1 },
       });
       fourthImg.start({
         x: 0,
-        y: 0,
-        opacity: 1,
+        y: 252,
+
+        opacity: 0,
         zIndex: 1,
         transition: { duration: 1 },
       });
@@ -135,7 +139,7 @@ export default function Home({ data }: Props) {
       slideLeft.start({
         x: 156,
         y: 0,
-        opacity: 1,
+        opacity: 0,
         zIndex: 1,
         transition: { duration: 1 },
       });
@@ -182,7 +186,7 @@ export default function Home({ data }: Props) {
         </div>
 
         <div className=" text-gray-800 ">
-          <div className="post-content container mx-auto text-lg  p-10 text-center md:text-left ">
+          <div className="post-content container mx-auto text-lg p-4 text-center md:text-left ">
             {/* <div
               dangerouslySetInnerHTML={{ __html: data.content.rendered }}
             ></div> */}
@@ -193,7 +197,11 @@ export default function Home({ data }: Props) {
               <section className="grid md:grid-cols-2 items-center">
                 <div className="flex items-center justify-center">
                   {" "}
-                  <div className="h-72  duration-300 w-72 md:w-96 md:h-96 bg-gray-800 rounded-full absolute z-0 md:left-40"></div>
+                  <motion.div
+                    initial={{ opacity: 0, height: "20rem", width: "20rem" }}
+                    animate={{ opacity: 1, height: "22rem", width: "22rem" }}
+                    className="h-72  duration-300 w-72 md:w-96 md:h-96 bg-gray-800 rounded-full absolute z-0 md:left-40"
+                  ></motion.div>
                   <Image
                     alt={"logo"}
                     src={`/img/cheetah.png`}
@@ -218,19 +226,19 @@ export default function Home({ data }: Props) {
               >
                 <motion.div
                   animate={animation}
-                  className="w-48 h-60 bg-gray-400 rounded-t-md"
+                  className="w-36 h-40 md:w-48 md:h-60 bg-gray-400 rounded-t-md"
                 ></motion.div>
                 <motion.div
                   animate={firstImg}
-                  className="w-48 h-60 bg-gray-400 rounded-t-md"
+                  className="w-36 h-40 md:w-48 md:h-60 bg-gray-400 rounded-t-md"
                 ></motion.div>
                 <motion.div
-                  animate={animation}
-                  className="w-48 h-60 bg-gray-400 rounded-t-md"
+                  animate={secondImg}
+                  className="w-36 h-40 md:w-48 md:h-60 bg-gray-400 rounded-t-md"
                 ></motion.div>
                 <motion.div
-                  animate={animation}
-                  className="w-48 h-60 bg-gray-400 rounded-t-md"
+                  animate={thirdImg}
+                  className="w-36 h-40 md:w-48 md:h-60 bg-gray-400 rounded-t-md"
                 ></motion.div>
               </div>
 
@@ -240,10 +248,7 @@ export default function Home({ data }: Props) {
               ></section>
 
               <section className="value-section my-16">
-                <div
-                  className="grid md:grid-cols-2 items-center relative"
-                  ref={ref}
-                >
+                <div className="grid md:grid-cols-2 items-center relative">
                   <motion.div
                     exit={{ opacity: 0 }}
                     animate={{
@@ -324,12 +329,7 @@ export default function Home({ data }: Props) {
                     transition={{ duration: 0.5 }}
                     className="md:order-2   flex justify-center items-center featured-img-2"
                   >
-                    <Image
-                      alt={"business paractice"}
-                      src={"/img/business paractice.svg"}
-                      width={400}
-                      height={400}
-                    />
+                    <BusinessPractices />
                   </motion.div>
                   <span className="md:text-2xl order-1 text-center">
                     {data.acf.value_fourth.info}

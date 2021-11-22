@@ -5,6 +5,7 @@
 .our-mission {
   font-family: "Roboto", sans-serif;
 }
+
 .featured-img::before {
   content: "";
   position: absolute;
@@ -437,6 +438,10 @@ ul.wp-block-gallery > li > figure > img {
   }
 }
 @media (max-width: 768px) {
+  #banner {
+    /* background-size: 750px 600px; */
+    background-position: 20% 0;
+  }
   .blog-wrapper {
     columns: 1;
 
