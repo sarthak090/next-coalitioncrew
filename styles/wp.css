@@ -7,7 +7,7 @@
 }
 
 .gallery {
-  overflow-x: scroll;
+  overflow-x: hidden;
 }
 .gallery::-webkit-scrollbar {
   display: none;

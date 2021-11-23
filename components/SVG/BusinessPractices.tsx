@@ -27,7 +27,7 @@ export default function BusinessPractices() {
       <motion.svg
         width="500"
         variants={svgVariants}
-        height="473"
+        height="300"
         viewBox="0 0 697 473"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
