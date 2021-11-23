@@ -7,6 +7,7 @@ import { GetStaticProps } from "next";
 import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import BusinessPractices from "../components/SVG/BusinessPractices";
+
 type Props = {
   data: {
     title: { rendered: string };
@@ -40,6 +41,12 @@ type Props = {
     };
   };
 };
+const breakPoints = [
+  { width: 1, itemsToShow: 1 },
+  { width: 550, itemsToShow: 2 },
+  { width: 768, itemsToShow: 3 },
+  { width: 1200, itemsToShow: 4 },
+];
 export default function Home({ data }: Props) {
   const { ref, inView } = useInView({ threshold: 0.2 });
   const animation = useAnimation();
@@ -48,7 +55,18 @@ export default function Home({ data }: Props) {
   const thirdImg = useAnimation();
   const fourthImg = useAnimation();
   const slideLeft = useAnimation();
-
+  const imagePath = [
+    { src: "Damian lillard.png", animation: firstImg },
+    { src: "james harden1.png", animation: secondImg },
+    { src: "jazz 1.png", animation: thirdImg },
+    { src: "Luke doncic.png", animation: fourthImg },
+    { src: "MGK.png", animation: firstImg },
+    { src: "pink panther.png", animation: secondImg },
+    { src: "rapper 1.png", animation: thirdImg },
+    { src: "snowbording cheetah.jpg", animation: fourthImg },
+    { src: "Tom Brady 1.png", animation: firstImg },
+    { src: "tow hawk.png", animation: secondImg },
+  ];
   const [shouldShowActions, setShouldShowActions] = useState(true);
   useEffect(() => {
     if (inView) {
@@ -222,30 +240,49 @@ export default function Home({ data }: Props) {
 
               <div
                 ref={ref}
-                className="gallery justify-items-center grid grid-cols-2 gap-4 md:grid-cols-4 "
+                className="gallery relative justify-items-center flex gap-8  md:grid-cols-4 "
               >
-                <motion.div
-                  animate={animation}
-                  className="w-36 h-40 md:w-48 md:h-60 bg-gray-400 rounded-t-md"
-                ></motion.div>
-                <motion.div
-                  animate={firstImg}
-                  className="w-36 h-40 md:w-48 md:h-60 bg-gray-400 rounded-t-md"
-                ></motion.div>
-                <motion.div
-                  animate={secondImg}
-                  className="w-36 h-40 md:w-48 md:h-60 bg-gray-400 rounded-t-md"
-                ></motion.div>
-                <motion.div
-                  animate={thirdImg}
-                  className="w-36 h-40 md:w-48 md:h-60 bg-gray-400 rounded-t-md"
-                ></motion.div>
+                {imagePath.map((image, index) => (
+                  <motion.div
+                    className="item min-w-full"
+                    animate={image.animation}
+                    key={index}
+                  >
+                    <Image
+                      alt={"Cheetah"}
+                      src={"/img/" + image.src}
+                      width={620}
+                      height={650}
+                    />
+                  </motion.div>
+                ))}
               </div>
-
-              <section
-                className=" "
-                dangerouslySetInnerHTML={{ __html: data.acf.third_section }}
-              ></section>
+              <section className="grid grid-cols-2 my-8">
+                <div className="md:hidden visible col-span-2">
+                  <Image
+                    src={"/img/gca.png"}
+                    width={600}
+                    height={300}
+                    className="relative"
+                    alt="gamechangeracademy"
+                  />
+                </div>
+                <section
+                  className="col-span-2 md:col-span-1 flex items-start justify-center flex-col  "
+                  dangerouslySetInnerHTML={{ __html: data.acf.third_section }}
+                ></section>
+                <div className="block md:visible">
+                  <Image
+                    src={"/img/gca.png"}
+                    width={600}
+                    height={300}
+                    objectFit="contain"
+                    className="relative"
+                    alt="gamechangeracademy"
+                  />
+                </div>
+                <div className="block md:visible blob-image bg-gray-800"></div>
+              </section>
 
               <section className="value-section my-16">
                 <div className="grid md:grid-cols-2 items-center relative">
