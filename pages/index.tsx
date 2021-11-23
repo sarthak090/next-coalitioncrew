@@ -6,7 +6,6 @@ import { motion, useAnimation } from "framer-motion";
 import { GetStaticProps } from "next";
 import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
-import BusinessPractices from "../components/SVG/BusinessPractices";
 
 type Props = {
   data: {
@@ -310,7 +309,10 @@ export default function Home({ data }: Props) {
                     className="order-1 grid  grid-cols-3"
                   >
                     {mspeaker.map((speaker, index) => (
-                      <div className="flex flex-col items-center justify-center gap-2 my-1">
+                      <div
+                        key={index}
+                        className="flex flex-col items-center justify-center gap-2 my-1"
+                      >
                         <Image
                           alt={data.acf.value_first.info}
                           src={"/img/" + speaker.itemsToShow}
