@@ -41,11 +41,13 @@ type Props = {
     };
   };
 };
-const breakPoints = [
-  { width: 1, itemsToShow: 1 },
-  { width: 550, itemsToShow: 2 },
-  { width: 768, itemsToShow: 3 },
-  { width: 1200, itemsToShow: 4 },
+const mspeaker = [
+  { name: "Gary Vaynerchuk", itemsToShow: "Gary-Vaynerchuk-min.jpg" },
+  { name: "Arianna Huffington", itemsToShow: "Arianna-Huffington-min.jpg" },
+  { name: "Robert Kiyosaki", itemsToShow: "Robert-Kiyosaki.jpg" },
+  { name: "Patrick Bet-David", itemsToShow: "Patrick-bet-david-min.jpg" },
+  { name: "Tim Ferriss", itemsToShow: "Tim-Ferriss-min.png" },
+  { name: "Tai Lopez", itemsToShow: "Tai-Lopez-min.jpg" },
 ];
 export default function Home({ data }: Props) {
   const { ref, inView } = useInView({ threshold: 0.2 });
@@ -186,14 +188,14 @@ export default function Home({ data }: Props) {
         }}
       />
 
-      <div className="t">
+      <main className="mx-auto">
         <div
           id="banner"
           className=" relative bg-crew w-full  h-screen bg-cover flex flex-col justify-between"
         >
           <Header />
 
-          <div className="flex flex-col  md:absolute right-64 bottom-20  justify-center items-center">
+          <div className="flex flex-col  md:absolute right-64 bottom-24  justify-center items-center">
             <button
               id="cta2"
               className="  text-3xl bg-yellow-300 uppercase italic font-bold  mb-3 px-16 py-3  text-iconColor"
@@ -213,25 +215,28 @@ export default function Home({ data }: Props) {
                 Our Mission
               </h1>
               <section className="grid md:grid-cols-2 items-center">
-                <div className="flex items-center justify-center">
-                  {" "}
-                  <motion.div
-                    initial={{ opacity: 0, height: "20rem", width: "20rem" }}
-                    animate={{ opacity: 1, height: "22rem", width: "22rem" }}
-                    className="h-72  duration-300 w-72 md:w-96 md:h-96 bg-gray-800 rounded-full absolute z-0 md:left-40"
-                  ></motion.div>
-                  <Image
-                    alt={"logo"}
-                    src={`/img/cheetah.png`}
-                    width={300}
-                    height={350}
-                  />
-                </div>
                 <div
+                  className="about-mission"
                   dangerouslySetInnerHTML={{
                     __html: `${data.acf.first_section} ${data.acf.second_section}`,
                   }}
                 ></div>
+                <div className="flex items-center justify-center relative">
+                  {" "}
+                  <motion.div
+                    initial={{ opacity: 0, height: "20rem", width: "20rem" }}
+                    animate={{ opacity: 1, height: "22rem", width: "22rem" }}
+                    className="h-72  duration-300 w-72 md:w-96 md:h-96 bg-gray-800 rounded-full absolute z-0 md:left-38"
+                  ></motion.div>
+                  <Image
+                    alt={"logo"}
+                    src={`/img/running-cheetah.gif`}
+                    width={400}
+                    className="relative"
+                    objectFit="contain"
+                    height={450}
+                  />
+                </div>
               </section>
 
               <div className="flex justify-center">
@@ -259,8 +264,9 @@ export default function Home({ data }: Props) {
               </div>
 
               <div className="flex justify-center">
-                <div className="w-36 h-2 flex  bg-gray-700 my-9"></div>
+                <div className="max-w-6xl overflow-hidden w-36 h-2 flex  bg-gray-800 my-9"></div>
               </div>
+
               <section className="grid grid-cols-2 my-8">
                 <div className="md:hidden visible col-span-2">
                   <Image
@@ -272,7 +278,7 @@ export default function Home({ data }: Props) {
                   />
                 </div>
                 <section
-                  className="col-span-2 md:col-span-1 flex items-start justify-center flex-col  "
+                  className="col-span-2 value-section md:col-span-1 flex items-start justify-center flex-col  font-semibold leading-3 "
                   dangerouslySetInnerHTML={{ __html: data.acf.third_section }}
                 ></section>
                 <div className="hidden md:block md:visible">
@@ -289,6 +295,9 @@ export default function Home({ data }: Props) {
               </section>
 
               <section className="value-section my-16 grid grid-cols-1 gap-8">
+                <div className="flex justify-center">
+                  <div className="w-36 h-2 flex  bg-gray-700 my-9"></div>
+                </div>
                 <div className="grid md:grid-cols-2 items-center relative">
                   <motion.div
                     exit={{ opacity: 0 }}
@@ -298,21 +307,32 @@ export default function Home({ data }: Props) {
                     }}
                     initial={{ opacity: 0, translateX: -100 }}
                     transition={{ duration: 0.5 }}
-                    className="order-1 featured-img"
+                    className="order-1 grid  grid-cols-3"
                   >
-                    <Image
-                      alt={data.acf.value_first.info}
-                      src={"/img/millionaires speakers.png"}
-                      width={600}
-                      height={400}
-                    />
+                    {mspeaker.map((speaker, index) => (
+                      <div className="flex flex-col items-center justify-center gap-2 my-1">
+                        <Image
+                          alt={data.acf.value_first.info}
+                          src={"/img/" + speaker.itemsToShow}
+                          objectFit="contain"
+                          width={600}
+                          height={400}
+                          className="rounded-md"
+                        />
+                        <span className="text-sm md:text-md font-bold">
+                          {" "}
+                          {speaker.name}{" "}
+                        </span>
+                      </div>
+                    ))}
                   </motion.div>
-                  <span className="md:text-2xl order-2">
+                  <span className="md:text-2xl order-2 font-extrabold">
                     {data.acf.value_first.info}
-                    {/* Monthly Millionaire <br /> Guest Speakers */}
                   </span>
                 </div>
-
+                <div className="flex justify-center">
+                  <div className="w-36 h-2 flex  bg-gray-700 my-3 md:my-9"></div>
+                </div>
                 <div className="grid md:grid-cols-2 items-center relative">
                   <motion.div
                     exit={{ opacity: 0 }}
@@ -322,18 +342,22 @@ export default function Home({ data }: Props) {
                     }}
                     initial={{ opacity: 0, translateX: -100 }}
                     transition={{ duration: 0.5 }}
-                    className="md:order-2 flex justify-center items-center  featured-img-2"
+                    className="md:order-2 flex justify-center items-center  -2"
                   >
                     <Image
                       alt={data.acf.value_second.info}
-                      src={"/img/World Interconnected.svg"}
-                      width={600}
+                      src={"/img/linked.png"}
+                      objectFit="contain"
+                      width={500}
                       height={400}
                     />
                   </motion.div>
-                  <span className="md:text-2xl order-1 text-center ">
+                  <span className="md:text-2xl order-1 text-center font-extrabold ">
                     {data.acf.value_second.info}
                   </span>
+                </div>
+                <div className="flex justify-center">
+                  <div className="w-36 h-2 flex  bg-gray-700 my-3 md:my-9"></div>
                 </div>
 
                 <div className="grid md:grid-cols-2 items-center relative">
@@ -345,7 +369,7 @@ export default function Home({ data }: Props) {
                     }}
                     initial={{ opacity: 0, translateX: -100 }}
                     transition={{ duration: 0.5 }}
-                    className="order-1 flex justify-center items-center featured-img"
+                    className="order-1 flex justify-center items-center "
                   >
                     <Image
                       alt={"business training"}
@@ -359,22 +383,8 @@ export default function Home({ data }: Props) {
                   </span>
                 </div>
 
-                <div className="grid md:grid-cols-2 items-center relative">
-                  <motion.div
-                    exit={{ opacity: 0 }}
-                    animate={{
-                      opacity: shouldShowActions ? 1 : 0,
-                      translateX: 0,
-                    }}
-                    initial={{ opacity: 0, translateX: -100 }}
-                    transition={{ duration: 0.5 }}
-                    className="md:order-2   flex justify-center items-center featured-img-2"
-                  >
-                    <BusinessPractices />
-                  </motion.div>
-                  <span className="md:text-2xl order-1 text-center">
-                    {data.acf.value_fourth.info}
-                  </span>
+                <div className="flex justify-center">
+                  <div className="w-36 h-2 flex  bg-gray-700 my-3 md:my-9"></div>
                 </div>
 
                 <div className="grid md:grid-cols-2 items-center relative">
@@ -386,7 +396,34 @@ export default function Home({ data }: Props) {
                     }}
                     initial={{ opacity: 0, translateX: -100 }}
                     transition={{ duration: 0.5 }}
-                    className="order-1 flex justify-center items-center featured-img"
+                    className="md:order-2   flex justify-center items-center -2"
+                  >
+                    <Image
+                      alt={"enterpreneurs"}
+                      objectFit="contain"
+                      src={"/img/business paractice.svg"}
+                      width={400}
+                      height={400}
+                    />
+                  </motion.div>
+                  <span className="md:text-2xl order-1 text-center">
+                    {data.acf.value_fourth.info}
+                  </span>
+                </div>
+
+                <div className="flex justify-center">
+                  <div className="w-36 h-2 flex  bg-gray-700 my-3 md:my-9"></div>
+                </div>
+                <div className="grid md:grid-cols-2 items-center relative">
+                  <motion.div
+                    exit={{ opacity: 0 }}
+                    animate={{
+                      opacity: shouldShowActions ? 1 : 0,
+                      translateX: 0,
+                    }}
+                    initial={{ opacity: 0, translateX: -100 }}
+                    transition={{ duration: 0.5 }}
+                    className="order-1 flex justify-center items-center "
                   >
                     <Image
                       alt={"enterpreneurs"}
@@ -400,10 +437,13 @@ export default function Home({ data }: Props) {
                     {/* {data.acf.value_fifth.info} */}
                   </span>
                 </div>
+                <div className="flex justify-center">
+                  <div className="w-36 h-2 flex  bg-gray-700 my-3 md:my-9"></div>
+                </div>
               </section>
 
               <section
-                className="fourth"
+                className="fourth-section"
                 dangerouslySetInnerHTML={{ __html: data.acf.fourth_section }}
               ></section>
             </div>
@@ -412,7 +452,7 @@ export default function Home({ data }: Props) {
             <Footer />
           </div>
         </div>
-      </div>
+      </main>
     </>
   );
 }
