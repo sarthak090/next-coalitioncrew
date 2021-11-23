@@ -175,7 +175,7 @@ export default function Home({ data }: Props) {
           title: "Home - Coalitioncrew",
           type: "website",
           locale: "en_US",
-          url: "https://coalitioncrew.com/",
+          url: process.env.NEXT_PUBLIC_DOMAIN,
           images: [
             {
               url: "http://coalitioncrew.com/wp-content/uploads/2021/10/TCC_1-Transparent-1024x982.png",
