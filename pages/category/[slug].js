@@ -97,7 +97,7 @@ export const getStaticPaths = async () => {
     "weather-updates",
   ];
 
-  const paths = catPath.map((post) => {
+  const paths = catPath.slice(0, 1).map((post) => {
     return {
       params: { slug: post.toString() },
     };

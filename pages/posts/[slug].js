@@ -5,7 +5,6 @@ import Image from "next/image";
 import Link from "next/link";
 import PostFooter from "../../components/Layout/PostFooter";
 import { NextSeo } from "next-seo";
-import { comment } from "postcss";
 
 export default function Post({ postsData }) {
   const [comment_author, setName] = useState("");
@@ -213,7 +212,7 @@ export const getStaticPaths = async () => {
   ).then();
 
   const data = await res.json();
-  const paths = data.map((post) => {
+  const paths = data.slice(0, 1).map((post) => {
     return {
       params: { slug: post.slug.toString() },
     };

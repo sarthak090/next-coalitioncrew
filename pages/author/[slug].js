@@ -69,7 +69,7 @@ export const getStaticPaths = async () => {
   ).then();
   const data = await res.json();
 
-  const paths = data.map((author) => {
+  const paths = data.slice(0, 1).map((author) => {
     return {
       params: {
         slug: `${author.name.toLowerCase().split(" ").join("-")}-${author.id}`,
