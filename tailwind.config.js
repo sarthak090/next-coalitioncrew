@@ -15,6 +15,8 @@ module.exports = {
         bannerColor: "#2c1430",
         iconColor: "#2F2E41",
         yellowHeading: "#FFED4E",
+        brownBackground: "#18181A",
+        brownBorder: "#611F07",
       },
     },
     backgroundImage: {

@@ -1,6 +1,7 @@
 import { NextSeo } from "next-seo";
 import Header from "../components/Layout/Header";
 import Footer from "../components/Layout/Footer";
+import MSpeaker from "../components/Home/MSpeaker";
 import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
 import { GetStaticProps } from "next";
@@ -57,6 +58,13 @@ export default function Home({ data }: Props) {
   const fourthImg = useAnimation();
   const slideLeft = useAnimation();
   const imagePath = [
+    { src: "12.png", animation: secondImg },
+    { src: "13.png", animation: firstImg },
+    { src: "14.png", animation: fourthImg },
+    { src: "335.png", animation: secondImg },
+
+    { src: "17.png", animation: thirdImg },
+    { src: "18.png", animation: secondImg },
     { src: "Damian lillard.png", animation: firstImg },
     { src: "james harden1.png", animation: secondImg },
     { src: "jazz 1.png", animation: thirdImg },
@@ -66,7 +74,22 @@ export default function Home({ data }: Props) {
     { src: "rapper 1.png", animation: thirdImg },
     { src: "snowbording cheetah.jpg", animation: fourthImg },
     { src: "Tom Brady 1.png", animation: firstImg },
-    { src: "tow hawk.png", animation: secondImg },
+    { src: "12.png", animation: secondImg },
+    { src: "13.png", animation: firstImg },
+    { src: "14.png", animation: fourthImg },
+
+    { src: "17.png", animation: firstImg },
+    { src: "18.png", animation: secondImg },
+    { src: "19.png", animation: secondImg },
+    { src: "139.png", animation: secondImg },
+    { src: "147.png", animation: secondImg },
+    { src: "148.png", animation: secondImg },
+    { src: "149.png", animation: secondImg },
+    { src: "5521.png", animation: secondImg },
+    { src: "569.png", animation: secondImg },
+    { src: "520.png", animation: secondImg },
+    { src: "335.png", animation: secondImg },
+    { src: "162.png", animation: secondImg },
   ];
   const [shouldShowActions, setShouldShowActions] = useState(true);
   useEffect(() => {
@@ -266,7 +289,8 @@ export default function Home({ data }: Props) {
                 <div className="max-w-6xl overflow-hidden w-36 h-2 flex  bg-gray-800 my-9"></div>
               </div>
 
-              <section className="grid grid-cols-2 my-8">
+              {/* <Value /> */}
+              <section className="grid grid-cols-2 my-8 value-section">
                 <div className="md:hidden visible col-span-2">
                   <Image
                     src={"/img/gca.png"}
@@ -276,6 +300,7 @@ export default function Home({ data }: Props) {
                     alt="gamechangeracademy"
                   />
                 </div>
+
                 <section
                   className="col-span-2 value-section md:col-span-1 flex items-start justify-center flex-col  font-semibold leading-3 "
                   dangerouslySetInnerHTML={{ __html: data.acf.third_section }}
@@ -292,12 +317,12 @@ export default function Home({ data }: Props) {
                 </div>
                 <div className="hidden md:block md:visible blob-image bg-gray-800"></div>
               </section>
-
               <section className="value-section my-16 grid grid-cols-1 gap-8">
                 <div className="flex justify-center">
                   <div className="w-36 h-2 flex  bg-gray-700 my-9"></div>
                 </div>
-                <div className="grid md:grid-cols-2 items-center relative">
+                <MSpeaker />
+                {/* <div className="grid md:grid-cols-2 items-center relative">
                   <motion.div
                     exit={{ opacity: 0 }}
                     animate={{
@@ -331,7 +356,8 @@ export default function Home({ data }: Props) {
                   <span className="md:text-2xl order-2 font-extrabold">
                     {data.acf.value_first.info}
                   </span>
-                </div>
+                </div> */}
+
                 <div className="flex justify-center">
                   <div className="w-36 h-2 flex  bg-gray-700 my-3 md:my-9"></div>
                 </div>
