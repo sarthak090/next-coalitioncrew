@@ -1,7 +1,7 @@
 import { NextSeo } from "next-seo";
 import Header from "../components/Layout/Header";
 import Footer from "../components/Layout/Footer";
-import MSpeaker from "../components/Home/MSpeaker";
+import shuffle from "../utils/shuffle-image";
 import Image from "next/image";
 import { motion, useAnimation } from "framer-motion";
 import { GetStaticProps } from "next";
@@ -62,8 +62,27 @@ export default function Home({ data }: Props) {
     { src: "13.png", animation: firstImg },
     { src: "14.png", animation: fourthImg },
     { src: "335.png", animation: secondImg },
-
     { src: "17.png", animation: thirdImg },
+    { src: "slideshow/100.png", animation: thirdImg },
+    { src: "slideshow/102.png", animation: thirdImg },
+    { src: "slideshow/923.png", animation: thirdImg },
+    { src: "slideshow/989.png", animation: thirdImg },
+    { src: "slideshow/995.png", animation: thirdImg },
+    { src: "slideshow/1014.png", animation: thirdImg },
+    { src: "slideshow/1007.png", animation: thirdImg },
+    { src: "slideshow/1017.png", animation: thirdImg },
+    { src: "slideshow/105.png", animation: thirdImg },
+    { src: "slideshow/107.png", animation: thirdImg },
+    { src: "slideshow/108.png", animation: thirdImg },
+    { src: "slideshow/109.png", animation: thirdImg },
+    { src: "slideshow/110.png", animation: thirdImg },
+    { src: "slideshow/112.png", animation: thirdImg },
+    { src: "slideshow/124.png", animation: thirdImg },
+    { src: "slideshow/139.png", animation: thirdImg },
+    { src: "slideshow/140.png", animation: thirdImg },
+    { src: "slideshow/92.png", animation: thirdImg },
+    { src: "slideshow/93.png", animation: thirdImg },
+
     { src: "18.png", animation: secondImg },
     { src: "Damian lillard.png", animation: firstImg },
     { src: "james harden1.png", animation: secondImg },
@@ -269,7 +288,7 @@ export default function Home({ data }: Props) {
                 ref={ref}
                 className="gallery relative justify-items-center flex gap-8  md:grid-cols-4 "
               >
-                {imagePath.map((image, index) => (
+                {shuffle(imagePath).map((image, index) => (
                   <motion.div
                     className="item min-w-full"
                     animate={image.animation}
