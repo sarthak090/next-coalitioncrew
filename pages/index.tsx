@@ -60,6 +60,7 @@ export default function Home({ data }: Props) {
   const imagePath = [
     { src: "12.png", animation: secondImg },
     { src: "13.png", animation: firstImg },
+
     { src: "14.png", animation: fourthImg },
     { src: "335.png", animation: secondImg },
     { src: "17.png", animation: thirdImg },
@@ -97,9 +98,6 @@ export default function Home({ data }: Props) {
     { src: "rapper 1.png", animation: thirdImg },
     { src: "snowbording cheetah.jpg", animation: fourthImg },
     { src: "Tom Brady 1.png", animation: firstImg },
-    { src: "12.png", animation: secondImg },
-    { src: "13.png", animation: firstImg },
-    { src: "14.png", animation: fourthImg },
 
     { src: "17.png", animation: firstImg },
     { src: "18.png", animation: secondImg },
