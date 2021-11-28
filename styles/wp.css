@@ -89,7 +89,7 @@ main {
   overflow: hidden;
   white-space: nowrap;
 
-  animation: bannermove 15s linear infinite;
+  animation: bannermove 100s linear infinite;
 }
 
 @keyframes bannermove {

@@ -319,19 +319,18 @@ export default function Home({ data }: Props) {
                 </div>
                 <div className="hidden md:block md:visible blob-image bg-gray-800"></div>
               </section> */}
-
-              <section className="value-section   grid grid-cols-1  ">
-                <Image
-                  src={"/img/GCA-November-Website-Section-Sample.svg"}
-                  width={1024}
-                  height={600}
-                  className=" "
-                  alt="gamechangeracademy"
-                />
+              <Image
+                width={1200}
+                height={800}
+                src={"/img/Value-and-speaker.png"}
+                // className="relative object-contain  w-screen md:h-96"
+                alt="gamechangeracademy"
+              />
+              <section className="value-section  relative  grid grid-cols-1  ">
                 {/* <div className="flex justify-center">
                   <div className="w-36 h-2 flex  bg-gray-700 "></div>
                 </div> */}
-                <MSpeaker />
+                {/* <MSpeaker /> */}
                 {/* <div className="grid md:grid-cols-2 items-center relative">
                   <motion.div
                     exit={{ opacity: 0 }}
