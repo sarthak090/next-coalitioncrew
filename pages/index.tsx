@@ -286,14 +286,16 @@ export default function Home({ data }: Props) {
               </div>
 
               <div className="flex justify-center">
-                <div className="max-w-6xl overflow-hidden w-36 h-2 flex  bg-gray-800 my-9"></div>
+                <div className="max-w-6xl overflow-hidden w-36 h-2 flex  bg-gray-800 "></div>
               </div>
 
               {/* <Value /> */}
-              <section className="grid grid-cols-2 my-8 value-section">
+
+              {/* <section className="grid grid-cols-2 my-8 value-section">
+                
                 <div className="md:hidden visible col-span-2">
                   <Image
-                    src={"/img/gca.png"}
+                    src={"/img/GCA-November-Website-Section-Sample.svg"}
                     width={600}
                     height={300}
                     className="relative"
@@ -316,11 +318,19 @@ export default function Home({ data }: Props) {
                   />
                 </div>
                 <div className="hidden md:block md:visible blob-image bg-gray-800"></div>
-              </section>
-              <section className="value-section my-16 grid grid-cols-1 gap-8">
-                <div className="flex justify-center">
-                  <div className="w-36 h-2 flex  bg-gray-700 my-9"></div>
-                </div>
+              </section> */}
+
+              <section className="value-section   grid grid-cols-1  ">
+                <Image
+                  src={"/img/GCA-November-Website-Section-Sample.svg"}
+                  width={1024}
+                  height={600}
+                  className=" "
+                  alt="gamechangeracademy"
+                />
+                {/* <div className="flex justify-center">
+                  <div className="w-36 h-2 flex  bg-gray-700 "></div>
+                </div> */}
                 <MSpeaker />
                 {/* <div className="grid md:grid-cols-2 items-center relative">
                   <motion.div
