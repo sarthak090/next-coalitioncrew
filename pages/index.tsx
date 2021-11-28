@@ -65,6 +65,10 @@ export default function Home({ data }: Props) {
     { src: "17.png", animation: thirdImg },
     { src: "slideshow/100.png", animation: thirdImg },
     { src: "slideshow/102.png", animation: thirdImg },
+    { src: "slideshow/Cyndi Lauper Cheetah.png", animation: thirdImg },
+    { src: "slideshow/Serena Williams Cheetah.png", animation: thirdImg },
+    { src: "slideshow/Skylar Diggins-Smith Cheetah.png", animation: thirdImg },
+    { src: "slideshow/Wonder Woman Cheetah.png", animation: thirdImg },
     { src: "slideshow/923.png", animation: thirdImg },
     { src: "slideshow/989.png", animation: thirdImg },
     { src: "slideshow/995.png", animation: thirdImg },
@@ -345,158 +349,14 @@ export default function Home({ data }: Props) {
                 // className="relative object-contain  w-screen md:h-96"
                 alt="gamechangeracademy"
               />
-              <section className="value-section  relative  grid grid-cols-1  ">
-                {/* <div className="flex justify-center">
-                  <div className="w-36 h-2 flex  bg-gray-700 "></div>
-                </div> */}
-                {/* <MSpeaker /> */}
-                {/* <div className="grid md:grid-cols-2 items-center relative">
-                  <motion.div
-                    exit={{ opacity: 0 }}
-                    animate={{
-                      opacity: shouldShowActions ? 1 : 0,
-                      translateX: 0,
-                    }}
-                    initial={{ opacity: 0, translateX: -100 }}
-                    transition={{ duration: 0.5 }}
-                    className="order-1 grid  grid-cols-3"
-                  >
-                    {mspeaker.map((speaker, index) => (
-                      <div
-                        key={index}
-                        className="flex flex-col items-center justify-center gap-2 my-1"
-                      >
-                        <Image
-                          alt={data.acf.value_first.info}
-                          src={"/img/" + speaker.itemsToShow}
-                          objectFit="contain"
-                          width={600}
-                          height={400}
-                          className="rounded-md"
-                        />
-                        <span className="text-sm md:text-md font-bold">
-                          {" "}
-                          {speaker.name}{" "}
-                        </span>
-                      </div>
-                    ))}
-                  </motion.div>
-                  <span className="md:text-2xl order-2 font-extrabold">
-                    {data.acf.value_first.info}
-                  </span>
-                </div> */}
 
-                <div className="flex justify-center">
-                  <div className="w-36 h-2 flex  bg-gray-700 my-3 md:my-9"></div>
-                </div>
-                <div className="grid md:grid-cols-2 items-center relative">
-                  <motion.div
-                    exit={{ opacity: 0 }}
-                    animate={{
-                      opacity: shouldShowActions ? 1 : 0,
-                      translateX: 0,
-                    }}
-                    initial={{ opacity: 0, translateX: -100 }}
-                    transition={{ duration: 0.5 }}
-                    className="md:order-2 flex justify-center items-center  -2"
-                  >
-                    <Image
-                      alt={data.acf.value_second.info}
-                      src={"/img/linked.png"}
-                      objectFit="contain"
-                      width={500}
-                      height={400}
-                    />
-                  </motion.div>
-                  <span className="md:text-2xl order-1 text-center font-extrabold ">
-                    {data.acf.value_second.info}
-                  </span>
-                </div>
-                <div className="flex justify-center">
-                  <div className="w-36 h-2 flex  bg-gray-700 my-3 md:my-9"></div>
-                </div>
-
-                <div className="grid md:grid-cols-2 items-center relative">
-                  <motion.div
-                    exit={{ opacity: 0 }}
-                    animate={{
-                      opacity: shouldShowActions ? 1 : 0,
-                      translateX: 0,
-                    }}
-                    initial={{ opacity: 0, translateX: -100 }}
-                    transition={{ duration: 0.5 }}
-                    className="order-1 flex justify-center items-center "
-                  >
-                    <Image
-                      alt={"business training"}
-                      src={"/img/business training.svg"}
-                      width={400}
-                      height={400}
-                    />
-                  </motion.div>
-                  <span className="md:text-2xl order-2 text-center">
-                    {data.acf.value_third.info}
-                  </span>
-                </div>
-
-                <div className="flex justify-center">
-                  <div className="w-36 h-2 flex  bg-gray-700 my-3 md:my-9"></div>
-                </div>
-
-                <div className="grid md:grid-cols-2 items-center relative">
-                  <motion.div
-                    exit={{ opacity: 0 }}
-                    animate={{
-                      opacity: shouldShowActions ? 1 : 0,
-                      translateX: 0,
-                    }}
-                    initial={{ opacity: 0, translateX: -100 }}
-                    transition={{ duration: 0.5 }}
-                    className="md:order-2   flex justify-center items-center -2"
-                  >
-                    <Image
-                      alt={"enterpreneurs"}
-                      objectFit="contain"
-                      src={"/img/business paractice.svg"}
-                      width={400}
-                      height={400}
-                    />
-                  </motion.div>
-                  <span className="md:text-2xl order-1 text-center">
-                    {data.acf.value_fourth.info}
-                  </span>
-                </div>
-
-                <div className="flex justify-center">
-                  <div className="w-36 h-2 flex  bg-gray-700 my-3 md:my-9"></div>
-                </div>
-                <div className="grid md:grid-cols-2 items-center relative">
-                  <motion.div
-                    exit={{ opacity: 0 }}
-                    animate={{
-                      opacity: shouldShowActions ? 1 : 0,
-                      translateX: 0,
-                    }}
-                    initial={{ opacity: 0, translateX: -100 }}
-                    transition={{ duration: 0.5 }}
-                    className="order-1 flex justify-center items-center "
-                  >
-                    <Image
-                      alt={"enterpreneurs"}
-                      src={"/img/enterpreneurs.svg"}
-                      width={400}
-                      height={400}
-                    />
-                  </motion.div>
-                  <span className="md:text-2xl order-2 ">
-                    Access to Other Game Changers <br /> and Entrepreneurs
-                    {/* {data.acf.value_fifth.info} */}
-                  </span>
-                </div>
-                <div className="flex justify-center">
-                  <div className="w-36 h-2 flex  bg-gray-700 my-3 md:my-9"></div>
-                </div>
-              </section>
+              <Image
+                width={1200}
+                height={800}
+                src={"/img/network.png"}
+                // className="relative object-contain  w-screen md:h-96"
+                alt="gamechangeracademy"
+              />
 
               <section
                 className="fourth-section"
