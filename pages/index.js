@@ -51,7 +51,7 @@ const mspeaker = [
 ];
 export default function Home({ data }) {
   const { ref, inView } = useInView({ threshold: 0.2 });
-  const { showReleaseDate, coundownText } = useCountDown("2021-12-04 01:00 PM");
+  const { showReleaseDate, coundownText } = useCountDown("2021-12-04 10:00 PM");
 
   const animation = useAnimation();
   const firstImg = useAnimation();
