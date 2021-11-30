@@ -1,4 +1,4 @@
-function shuffle(array: { src: string; animation: any }[]) {
+function shuffle(array) {
   let currentIndex = array.length,
     randomIndex;
 

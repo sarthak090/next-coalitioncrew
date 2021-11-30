@@ -4,9 +4,9 @@ import "../styles/wp.css";
 import "../styles/globals.css";
 import "tailwindcss/tailwind.css";
 
-import type { AppProps } from "next/app";
+// import type { AppProps } from "next/app";
 import { DefaultSeo } from "next-seo";
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps }) {
   return (
     <AnimatePresence exitBeforeEnter>
       <DefaultSeo

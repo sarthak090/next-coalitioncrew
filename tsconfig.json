@@ -14,6 +14,6 @@
     "isolatedModules": true,
     "jsx": "preserve"
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "hooks/useCountDown.js"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "hooks/useCountDown.js", "pages/_app.js", "pages/index.js", "components/Layout/PostFooter.js", "components/Layout/Header.js", "components/Layout/Footer.js", "components/Home/Value.js", "components/Home/MSpeaker.js", "components/Home/Founder.js", "utils/shuffle-image.js", "utils/date-format.js"],
   "exclude": ["node_modules"]
 }

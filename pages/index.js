@@ -8,39 +8,39 @@ import { GetStaticProps } from "next";
 import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
 import useCountDown from "../hooks/useCountDown";
-type Props = {
-  data: {
-    title: { rendered: string };
-    content: { rendered: string };
-    acf: {
-      profile_image_url: string;
-      first_section: string;
-      second_section: string;
-      third_section: string;
-      fourth_section: string;
-      value_first: {
-        image_: { sizes: { large: string }; url: string };
-        info: string;
-      };
-      value_second: {
-        image_: { sizes: { large: string }; url: string };
-        info: string;
-      };
-      value_third: {
-        image_: string;
-        info: string;
-      };
-      value_fourth: {
-        image_: { sizes: { large: string }; url: string };
-        info: string;
-      };
-      value_fifth: {
-        image_: { sizes: { large: string }; url: string };
-        info: string;
-      };
-    };
-  };
-};
+// type Props = {
+//   data: {
+//     title: { rendered: string };
+//     content: { rendered: string };
+//     acf: {
+//       profile_image_url: string;
+//       first_section: string;
+//       second_section: string;
+//       third_section: string;
+//       fourth_section: string;
+//       value_first: {
+//         image_: { sizes: { large: string }; url: string };
+//         info: string;
+//       };
+//       value_second: {
+//         image_: { sizes: { large: string }; url: string };
+//         info: string;
+//       };
+//       value_third: {
+//         image_: string;
+//         info: string;
+//       };
+//       value_fourth: {
+//         image_: { sizes: { large: string }; url: string };
+//         info: string;
+//       };
+//       value_fifth: {
+//         image_: { sizes: { large: string }; url: string };
+//         info: string;
+//       };
+//     };
+//   };
+// };
 const mspeaker = [
   { name: "Gary Vaynerchuk", itemsToShow: "Gary-Vaynerchuk-min.jpg" },
   { name: "Arianna Huffington", itemsToShow: "Arianna-Huffington-min.jpg" },
@@ -49,7 +49,7 @@ const mspeaker = [
   { name: "Tim Ferriss", itemsToShow: "Tim-Ferriss-min.png" },
   { name: "Tai Lopez", itemsToShow: "Tai-Lopez-min.jpg" },
 ];
-export default function Home({ data }: Props) {
+export default function Home({ data }) {
   const { ref, inView } = useInView({ threshold: 0.2 });
   const { showReleaseDate, coundownText } = useCountDown("2021-12-04 01:00 PM");
 
@@ -311,36 +311,6 @@ export default function Home({ data }: Props) {
                 <div className="max-w-6xl overflow-hidden w-36 h-2 flex  bg-gray-800 "></div>
               </div>
 
-              {/* <Value /> */}
-
-              {/* <section className="grid grid-cols-2 my-8 value-section">
-                
-                <div className="md:hidden visible col-span-2">
-                  <Image
-                    src={"/img/GCA-November-Website-Section-Sample.svg"}
-                    width={600}
-                    height={300}
-                    className="relative"
-                    alt="gamechangeracademy"
-                  />
-                </div>
-
-                <section
-                  className="col-span-2 value-section md:col-span-1 flex items-start justify-center flex-col  font-semibold leading-3 "
-                  dangerouslySetInnerHTML={{ __html: data.acf.third_section }}
-                ></section>
-                <div className="hidden md:block md:visible">
-                  <Image
-                    src={"/img/gca.png"}
-                    width={600}
-                    height={300}
-                    objectFit="contain"
-                    className="relative"
-                    alt="gamechangeracademy"
-                  />
-                </div>
-                <div className="hidden md:block md:visible blob-image bg-gray-800"></div>
-              </section> */}
               <Image
                 width={1200}
                 height={800}
@@ -372,7 +342,7 @@ export default function Home({ data }: Props) {
   );
 }
 
-export const getStaticProps: GetStaticProps = async () => {
+export const getStaticProps = async () => {
   const data = await fetch(
     `${process.env.NEXT_PUBLIC_BLOG_URL}/wp/v2/pages/4877`
   ).then();
