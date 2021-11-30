@@ -7,7 +7,7 @@ import { motion, useAnimation } from "framer-motion";
 import { GetStaticProps } from "next";
 import { useState, useEffect } from "react";
 import { useInView } from "react-intersection-observer";
-
+import useCountDown from "../hooks/useCountDown";
 type Props = {
   data: {
     title: { rendered: string };
@@ -51,6 +51,8 @@ const mspeaker = [
 ];
 export default function Home({ data }: Props) {
   const { ref, inView } = useInView({ threshold: 0.2 });
+  const { showReleaseDate, coundownText } = useCountDown("2021-12-04 01:00 PM");
+
   const animation = useAnimation();
   const firstImg = useAnimation();
   const secondImg = useAnimation();
@@ -233,13 +235,17 @@ export default function Home({ data }: Props) {
         >
           <Header />
 
-          <div className="flex flex-col  md:absolute right-64 bottom-24  justify-center items-center">
+          <div className="flex flex-col  md:absolute right-64 bottom-11   justify-center items-center">
             <button
               id="cta2"
-              className="  text-3xl bg-yellow-300 uppercase italic font-bold  mb-3 px-16 py-3  text-iconColor"
+              className="  text-3xl bg-yellow-300 uppercase italic font-bold  mb-2 px-16 py-4  text-iconColor"
             >
               Mint Here
             </button>
+
+            <span className="text-2xl font-bold text-gray-800 mb-4">
+              {showReleaseDate && coundownText}
+            </span>
           </div>
         </div>
 
